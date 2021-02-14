@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
   cart = JSON.parse(localStorage.getItem('cart'));
 
   if(localStorage.getItem('sizeOfCart') == null) {
-    localStorage.setItem('sizeOfCart', JSON.stringify(cartCount.textContent));
+    localStorage.setItem('sizeOfCart', JSON.stringify(sizeOfCart.textContent));
   }
   sizeOfCart.textContent = JSON.parse(localStorage.getItem('cartSize'));
 
@@ -28,5 +28,5 @@ window.addEventListener('DOMContentLoaded', () => {
     let curr = new ProductItem(dataStored[i].imagesrc, dataStored[i].title, dataStored[i].price, dataStored[i].id, cart.includes(dataStored[i].id));
     array.appendChild(curr);
   }
-  
+
 });
