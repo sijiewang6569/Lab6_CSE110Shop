@@ -7,7 +7,7 @@ class ProductItem extends HTMLElement {
     
     const li = this.shadowRoot.appendChild(document.createElement('li'));
     const img = document.createElement('img');
-    const price = document.createElement('p');
+    var price = document.createElement('p');
     const title = document.createElement('p');
     const button = document.createElement('button');
 
@@ -117,4 +117,3 @@ class ProductItem extends HTMLElement {
 }
 
 customElements.define("product-item", ProductItem);
-
