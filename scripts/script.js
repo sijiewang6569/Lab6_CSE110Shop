@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (dataStored != null){
     dataStored.forEach(function(index){
       let curr = document.createElement('product-item');
-      curr = new ProductItem(index.imagesrc, index.title, index.price, index.id, index.includes(index.id));
+      curr = new ProductItem(index.imagesrc, index.title, index.price, index.id, cart.includes(index.id));
       if (productsList != null){
         productsList.appendChild(curr);
       }
