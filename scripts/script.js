@@ -8,6 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
       .then(data => localStorage.setItem('items', JSON.stringify(data)));
   }
   
+  let dataStored = JSON.parse(localStorage.getItem('items'));
+  let productsList = document.getElementById('products-list');
+
   if(localStorage.getItem('cart') == null) {
     let cart = [];
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -20,12 +23,9 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   cartCount.textContent = JSON.parse(localStorage.getItem('sizeOfCart'));
 
-  let dataStored = JSON.parse(localStorage.getItem('items'));
-  let productsList = document.getElementById('products-list');
-
   if (dataStored != null){
-    for (let i; i < dataStored.length; i++) {
-      let curr = new ProductItem(dataStored[i].imagesrc, dataStored[i].title, dataStored[i].price, dataStored[i].id, cart.includes(dataStored[i].id));
+    for (var index in dataStored){
+      let curr = new ProductItem(dataStored[index].imagesrc, dataStored[index].title, dataStored[index].price, dataStored[index].id, cart.includes(dataStored[index].id));
       productsList.appendChild(curr);
     }
   }
