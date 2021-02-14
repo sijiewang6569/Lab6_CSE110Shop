@@ -24,9 +24,10 @@ window.addEventListener('DOMContentLoaded', () => {
   let dataStored = JSON.parse(localStorage.getItem('items'));
   let array = document.getElementById('array');
 
-  for (let i; i < dataStored.length; i++) {
-    let curr = new ProductItem(dataStored[i].imagesrc, dataStored[i].title, dataStored[i].price, dataStored[i].id, cart.includes(dataStored[i].id));
-    array.appendChild(curr);
+  if (dataStored != null){
+    for (let i; i < dataStored.length; i++) {
+      let curr = new ProductItem(dataStored[i].imagesrc, dataStored[i].title, dataStored[i].price, dataStored[i].id, cart.includes(dataStored[i].id));
+      array.appendChild(curr);
+    }
   }
-
 });
