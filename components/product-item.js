@@ -3,7 +3,7 @@ class ProductItem extends HTMLElement {
   constructor(imagesrc, title, price, id, addOrRemove) {
 
     super();
-    this.attachShadow( { mode: "open" });
+    this.root = this.attachShadow( { mode: "open" });
     
     const li = document.createElement('li');
     const img = document.createElement('img');
@@ -28,7 +28,7 @@ class ProductItem extends HTMLElement {
     li.appendChild(title);
     li.appendChild(button);
 
-    this.shadowRoot.innerHTML = 
+    this.root.innerHTML = 
       `<style>
         .price {
           color: green;
@@ -113,8 +113,9 @@ class ProductItem extends HTMLElement {
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('sizeOfCart', JSON.stringify(sizeOfCart));
       }
-      this.shadowRoot.appendChild(li);
+      this.root.append(li);
   }
 }
 
 customElements.define("product-item", ProductItem);
+
