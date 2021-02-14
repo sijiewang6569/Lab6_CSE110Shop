@@ -1,7 +1,7 @@
 // Script.js
 
 var cart = [];
-var cartCount = document.getElementById('cart-count');
+var sizeOfCart = document.getElementById('cart-count');
 
 window.addEventListener('DOMContentLoaded', () => {
   // TODO
@@ -10,29 +10,23 @@ window.addEventListener('DOMContentLoaded', () => {
       .then(response => response.json())
       .then(data => localStorage.setItem('items', JSON.stringify(data)));
   }
-
-  let itemDataset = JSON.parse(localStorage.getItem('items'));
-  let productsList = document.getElementById('prduct-list');
   
   if(localStorage.getItem('cart') == null) {
-    localStorage.setItem('cart', 
-    JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
   cart = JSON.parse(localStorage.getItem('cart'));
 
-  if(localStorage.getItem('cartSize') == null) {
-    localStorage.setItem('cartSize', JSON.stringify(cartCount.textContent));
+  if(localStorage.getItem('sizeOfCart') == null) {
+    localStorage.setItem('sizeOfCart', JSON.stringify(cartCount.textContent));
   }
-  cartCount.textContent = JSON.parse(localStorage.getItem('cartSize'));
+  sizeOfCart.textContent = JSON.parse(localStorage.getItem('cartSize'));
 
-  for(let i = 0; i < itemDataset.length; i++){
-    let product = prods.appendChild (document.createElement('product-item'));
-        product.setAttribute('src'  , items[i].image);
-        product.setAttribute('title', items[i].title);
-        product.setAttribute('price', items[i].price);
-        product.setAttribute('id'   , items[i].id   );
-    
-    if(cart.has(''+(items[i].id))) {product.cartButton();}
+  let dataStored = JSON.parse(localStorage.getItem('product'));
+  let array = document.getElementById('product-array');
 
+  for (let i; i < dataStored.length; i++) {
+    let curr = new ProductItem(dataStored[i].imagesrc, dataStored[i].title, dataStored[i].price, dataStored[i].id, cart.includes(dataStored[i].id));
+    array.appendChild(curr);
   }
+  
 });
