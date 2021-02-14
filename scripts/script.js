@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     for (var index in dataStored){
       let curr = new ProductItem(dataStored[index].imagesrc, dataStored[index].title, 
         dataStored[index].price, dataStored[index].id, cart.includes(dataStored[index].id));
-      if (curr != null){
+      if (productsList != null){
         productsList.appendChild(curr);
       }
     }
