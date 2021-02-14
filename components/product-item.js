@@ -5,7 +5,7 @@ class ProductItem extends HTMLElement {
     super();
     this.attachShadow( { mode: "open" });
     
-    const li = this.shadowRoot.appendChild(document.createElement('li'));
+    const li = document.createElement('li');
     const img = document.createElement('img');
     var price = document.createElement('p');
     var title = document.createElement('p');
@@ -113,8 +113,8 @@ class ProductItem extends HTMLElement {
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('sizeOfCart', JSON.stringify(sizeOfCart));
       }
+      this.shadowRoot.appendChild(li);
   }
 }
 
 customElements.define("product-item", ProductItem);
-
