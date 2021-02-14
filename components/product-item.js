@@ -5,11 +5,11 @@ class ProductItem extends HTMLElement {
     super();
     this.root = this.attachShadow( { mode: "open" });
     
-    const li = document.createElement('li');
-    const img = document.createElement('img');
+    var li = document.createElement('li');
+    var img = document.createElement('img');
     var price = document.createElement('p');
     var title = document.createElement('p');
-    const button = document.createElement('button');
+    var button = document.createElement('button');
 
     li.setAttribute('class', 'product');
     img.setAttribute('src', imagesrc);
@@ -118,4 +118,5 @@ class ProductItem extends HTMLElement {
 }
 
 customElements.define("product-item", ProductItem);
+
 
