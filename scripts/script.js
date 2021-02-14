@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let productsList = document.getElementById('products-list');
 
   if (dataStored != null){
-    for (var index in dataStored){
+    for (let index = 0; index < 20; index++){
       let curr = new ProductItem(dataStored[index].imagesrc, dataStored[index].title, 
         dataStored[index].price, dataStored[index].id, cart.includes(dataStored[index].id));
       if (productsList != null){
