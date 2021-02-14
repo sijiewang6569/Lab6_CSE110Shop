@@ -20,7 +20,10 @@ class ProductItem extends HTMLElement {
     price.setAttribute('class', 'price');
     button.textContent = "Add to Cart";
     if(addOrRemove) {
-      button.textContent = 'Remove from Cart';
+      button.textContent = "Remove from Cart";
+    }
+    else{
+      button.textContent = "Add to Cart";
     }
 
     li.appendChild(img);
